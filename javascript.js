@@ -107,7 +107,9 @@ async function playTone() {
     synth.dispose();
   }
 
-  synth = new Tone.Synth().toDestination();
+  synth = new Tone.Synth({
+    volume: -20 
+  }).toDestination();
 
   synth.triggerAttackRelease(`${pitch}4`, `${toneDuration}m`);
 }
