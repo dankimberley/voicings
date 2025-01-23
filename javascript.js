@@ -3,6 +3,7 @@ let currentChord;
 let counter;
 let indices;
 let toneDuration = 1;
+let toneVolume = 5;
 
 let chordText = document.getElementById("current");
 let counterText = document.getElementById("counter");
@@ -13,10 +14,10 @@ nextButton.addEventListener("click", (event) => {
 });
 let playButton = document.getElementById("play");
 playButton.addEventListener("click", () => playTone());
-let stopButton = document.getElementById('stop');
-stopButton.addEventListener('click', () => {
-  stopTone()
-})
+let stopButton = document.getElementById("stop");
+stopButton.addEventListener("click", () => {
+  stopTone();
+});
 
 document.addEventListener("keydown", (event) => {
   if (event.code === "Space") {
@@ -42,7 +43,15 @@ const sliderValue = document.getElementById("sliderValue");
 
 slider.addEventListener("input", () => {
   sliderValue.textContent = slider.value;
-  toneDuration = sliderValue.value
+  toneDuration = sliderValue.value;
+});
+
+const volume = document.getElementById("volumeSlider");
+const volumeValue = document.getElementById("volumeValue");
+
+volume.addEventListener("input", () => {
+  volumeValue.textContent = volume.value;
+  toneVolume = volumeSlider.value;
 });
 
 generateChords = () => {
@@ -94,6 +103,12 @@ const start = () => {
   indices = Array.from({ length: 72 }, (_, i) => i);
   indices.sort(() => Math.random() - 0.5);
   counter = 0;
+  slider.value = 1;
+  sliderValue.textContent = slider.value;
+  toneDuration = slider.value;
+  volume.value = 5;
+  volumeValue.textContent = volume.value;
+  toneVolume = volume.value;
   progress();
 };
 
@@ -106,16 +121,16 @@ async function playTone() {
   if (synth) {
     synth.dispose();
   }
-
+  console.log(toneVolume);
   synth = new Tone.Synth({
-    volume: -20 
+    volume: toneVolume < 11 && -20 + 2 * toneVolume,
   }).toDestination();
 
   synth.triggerAttackRelease(`${pitch}4`, `${toneDuration}m`);
 }
 
 stopTone = () => {
-  synth.dispose()
-}
+  synth.dispose();
+};
 
 start();
