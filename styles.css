@@ -30,7 +30,7 @@ body {
 
 #container {
     width: min(70ch, 100%);
-    height: min(12rem, 100%);
+    height: min(16rem, 100%);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
