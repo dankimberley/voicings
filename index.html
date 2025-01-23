@@ -1,24 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Voicing Practice</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
     <script src="javascript.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="container">
-        <span id="counter">1/72</span>
-        <span id="current"></span>
-        <button id="progress">Next (space)</button>
-         <button id="play">Play tone (p) 🎵</button>
-         <button id="stop">Stop tone (s) 🎵</button>
-        <label for="numberSlider">Tone duration:</label>
-        <input type="range" id="numberSlider" name="numberSlider" min="1" max="10" value="1">
-        <span id="sliderValue">1</span>
-
+      <span id="counter">1/72</span>
+      <span id="current"></span>
+      <button id="progress">Next (space)</button>
+      <button id="play">Play tone (p) 🎵</button>
+      <button id="stop">Stop tone (s) 🎵</button>
+      <label for="numberSlider">Tone duration:</label>
+      <input
+        type="range"
+        id="numberSlider"
+        name="numberSlider"
+        min="1"
+        max="10"
+        value="1"
+      />
+      <span id="sliderValue">1</span>
+      <div class="voicings">
+        <div class="voicingContainer">
+          Major Root<img
+            id="minor-1st"
+            src="resources/major-root.svg"
+            alt="Major Root"
+          />
+        </div>
+        <div class="voicingContainer">
+          Major 1st Inversion<img
+            id="major-1st"
+            src="resources/major-1st.svg"
+            alt="Major 1st"
+          />
+        </div>
+        <div class="voicingContainer">
+          Major 2nd Inversion<img
+            id="major-2nd"
+            src="resources/major-2nd.svg"
+            alt="Minor 2nd"
+          />
+        </div>
+        <div class="voicingContainer">
+          Minor Root<img
+            id="minor-1st"
+            src="resources/minor-root.svg"
+            alt="Minor Root"
+          />
+        </div>
+        <div class="voicingContainer">
+          Minor 1st Inversion<img
+            id="minor-1st"
+            src="resources/minor-1st.svg"
+            alt="Minor 1st"
+          />
+        </div>
+        <div class="voicingContainer">
+          Minor 2nd Inversion<img
+            id="minor-2nd"
+            src="resources/minor-2nd.svg"
+            alt="Minor 2nd"
+          />
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
